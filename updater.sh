@@ -64,7 +64,7 @@ do
             pkill -f Sonarr
             rm -rf Sonarr
             echo "Getting Sonarr..."
-            wget -qO ~/Sonarr.tar.gz 'https://services.sonarr.tv/v1/download/main/latest?version=3&os=linux'
+            wget -qO ~/Sonarr.tar.gz 'https://services.sonarr.tv/v1/download/main/latest?version=4&os=linux&arch=x64'
             echo "Extracting and configuring Sonarr..."
             tar xf ~/Sonarr.tar.gz
             rm ~/Sonarr.tar.gz

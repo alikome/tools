@@ -69,7 +69,7 @@ do
             tar xf ~/Sonarr.tar.gz
             rm ~/Sonarr.tar.gz
             echo "Starting up Sonarr..."
-            screen -dmS Sonarr /bin/bash -c 'export TMPDIR=~/tmp; mono --debug Sonarr/Sonarr.exe'
+            screen -dmS Sonarr /bin/bash -c 'export TMPDIR=~/tmp; cd ~/Sonarr; ./Sonarr'
             echo
             ;;
         "3") # Install Radarr

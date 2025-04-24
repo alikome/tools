@@ -9,7 +9,8 @@ mainMenu ()
     echo "1 Install Jackett"
     echo "2 Install Sonarr"
     echo "3 Install Radarr"
-    echo "4 Install Syncthing"
+    echo "4 Install Prowlarr"
+    echo "5 Install Syncthing"
     echo "q Quit"
 }
 
@@ -85,7 +86,20 @@ do
             screen -dmS Radarr /bin/bash -c 'export TMPDIR=~/.config/Radarr/tmp; ~/Radarr/Radarr -nobrowser'
             echo
             ;;
-        "4") # Install Syncthing
+        "4") # Install Prowlarr
+            echo "Removing Prowlarr"
+            pkill -f Prowlarr
+            rm -rf Prowlarr
+            echo "Getting Prowlarr..."
+            wget -qO ~/prowlarr.tar.gz 'http://prowlarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64'
+            echo "Extracting and configuring Prowlarr..."
+            tar xf ~/prowlarr.tar.gz
+            rm ~/prowlarr.tar.gz
+            echo "Starting up Prowlarr..."
+            screen -dmS Prowlar /bin/bash -c 'export TMPDIR=~/tmp; cd ~/Prowlarr; ./Prowlarr'
+            echo
+            ;;   
+        "5") # Install Syncthing
             if pgrep -f 'Syncthing' > /dev/null
             then
             echo "Removing Syncthing"
